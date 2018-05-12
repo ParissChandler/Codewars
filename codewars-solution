@@ -1,0 +1,71 @@
+//Find odd integer
+
+function findOdd(A) { 
+  let countNum = 0;
+  for(var i = 0; i < A.length; i++) {
+    for(var b = 0; b < A.length; b++) {
+          if(A[i] == A[b]) {
+            countNum++;
+          }
+    }
+    if (countNum % 2 !== 0) {
+        return A[i];
+    }
+  }
+  countNum = 0;
+}
+
+findOdd([8,18,-7,-17,12]);
+
+
+// Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+
+function doubleChar(str) {
+  let charArray = [];
+  for(let i = 0; i <= str.length-1; i++){
+  charArray.push(str[i]);
+  charArray.push(str[i]);
+  }
+  // .join() joins elements in array and returns string
+  return charArray.join('');
+}
+
+// Return a negative number but check to see if the number is negative first
+
+function makeNegative(num) {
+
+  if(num > 0) { 
+    return -num
+  }
+  
+  if(num <= 0) {
+    return num;
+  }
+}
+
+// Check to make sure that coupons are not expired and have the correct code so that customers cannot attempt to play the system
+
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+
+  if(enteredCode === correctCode && Date.parse(currentDate) <= Date.parse(expirationDate)) {
+    return true
+    } else { 
+    return false 
+    }
+
+}
+
+// Return the vowels in a given string
+
+function getCount(str) {
+let vowelsCount = 0;
+let vowels = ['a', 'e', 'i', 'o', 'u']; 
+  for(let i = 0; i < str.length; i++) {
+    vowels.forEach((vowelStrings) => {
+      if(str[i] === vowelStrings) {
+        vowelsCount++; 
+      }
+    })
+  }
+  return vowelsCount;
+}
