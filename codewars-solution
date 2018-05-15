@@ -69,3 +69,11 @@ let vowels = ['a', 'e', 'i', 'o', 'u'];
   }
   return vowelsCount;
 }
+
+// Return a sorted array with words starting from shortest to longest
+// use .sort()
+
+function sortByLength (array) {
+  return array.sort((nonSortedArray, sortedArray) =>
+  nonSortedArray.length - sortedArray.length);
+};
