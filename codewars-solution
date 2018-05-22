@@ -1,3 +1,5 @@
+
+// week of May 11
 //Find odd integer
 
 function findOdd(A) { 
@@ -77,3 +79,74 @@ function sortByLength (array) {
   return array.sort((nonSortedArray, sortedArray) =>
   nonSortedArray.length - sortedArray.length);
 };
+
+// week of May 18
+// Your task is to sort ascending odd numbers but even numbers must be on their places.
+function sortArray(array) {
+const oddNums = [];
+const positiveNums = [];
+
+for (let i = 0; i < array.length; i += 1) {
+  if (array[i]%2 === 0) {
+    positiveNums.push(array[i]);
+  } else {
+    oddNums.push(array[i]);
+  }
+}
+const arr = [];
+
+  oddNums.sort((a, b) => a - b);
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i]%2 === 0) {
+      arr.push(positiveNums.shift());
+    } else {
+      arr.push(oddNums.shift());
+    }
+  }
+  return arr;
+}
+
+
+// Given an array of numbers (a list in groovy), determine whether the sum of all of the numbers is odd or even.
+//Give your answer in string format as 'odd' or 'even'. If the input array is empty consider it as: [0] (array with a zero).
+const oddOrEven = (arr) => {
+  if(arr.length === 0) {
+    arr = [0]
+  }
+  
+  const result = arr.reduce((accumulator, currentValue) => accumulator+currentValue);
+   return result % 2 === 0 ? 'even' : 'odd'
+}
+
+//You are given an array strarr of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.
+
+function longestConsec(strarr, k) {
+let longestString = "";
+    for(var i=0;k>0 && i <= strarr.length-k; i++){
+      var tempArray = strarr.slice(i,i+k);
+      var randomString = tempArray.join("");
+      if(randomString.length > longestString.length){
+        longestString = randomString;
+      }
+    }
+    return longestString;
+}
+
+
+// Welcome. In this kata, you are asked to square every digit of a number.
+
+function squareDigits(num){
+let originalNum = String(num);
+let squaredNum ='';
+  
+  for(i=0; i <= originalNum.length-1; i++){
+    squaredNum += originalNum[i]*originalNum[i];
+  }
+  return Number(squaredNum);
+}
+
+// Return single number that isn't unique in an array
+
+function stray(numbers) {
+ return numbers.reduce((x, y) => x ^ y);
+}
