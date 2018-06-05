@@ -150,3 +150,61 @@ let squaredNum ='';
 function stray(numbers) {
  return numbers.reduce((x, y) => x ^ y);
 }
+
+//week of May 25th
+//Find even and odd integers
+const oddOrEven = (arr) => {
+  if(arr.length === 0) {
+    arr = [0]
+  }
+  
+  const result = arr.reduce((accumulator, currentValue) => accumulator+currentValue);
+   return result % 2 === 0 ? 'even' : 'odd'
+}
+
+//Filter list
+function filter_list(l) {
+  let result = [];
+  // Return a new array with the strings filtered out
+  l.forEach(item => {
+    typeof item === 'number' ? result.push(item) : console.log('nah')
+  })
+  
+  return result
+}
+
+//Find the capitals in a word
+const capitals = (word) => {
+  result = [];
+  word.split('').forEach((w, k) => {
+  if(w === w.toUpperCase()) {
+    result.push(k);
+  } 
+  })
+  return result;
+}
+
+//Find the shortest word
+const findShort = (s) => {
+  const reducer = (accumulator, currentValue) => accumulator <= currentValue ? accumulator : currentValue;
+  const array = s.split(' ').map(word => word.length); 
+  return array.reduce(reducer);
+}
+
+//Count the characters in your string
+function count (string) {  
+  let result = {}
+  for(let i = 0; i < string.length; i++) {
+    if(string.includes(string[i])) {
+      result[string[i]] = 0;
+    }
+  }
+  
+  for(let j = 0; j < string.length; j++) {
+    if(string.includes(string[j])) {
+      result[string[j]] =  result[string[j]] + 1;
+    }
+  }
+  return result;
+}
+
